@@ -17,9 +17,21 @@ $ fly -t example login -c http://192.168.100.4:8080
 $ bin/install
 
 # install a specific example
-$ bin/install hello-world
+$ bin/install hello
 ```
 
 The UI is running at 192.168.100.4:8080.
 
 > Example are not started by default.
+
+## Secure data
+
+Things like passwords and keys are provided via variable injection,
+and explained in the pipeline files that require them.  Provide keys
+and values in a `private.yml` file.
+
+``` yaml
+---
+git_private_key: ssh-rsa ...
+foo: bar
+```
