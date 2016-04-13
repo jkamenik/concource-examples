@@ -1,0 +1,25 @@
+#!/bin/bash
+
+set -e
+
+APP_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
+
+SCRIPTS=`find $APP_DIR -name '*.yml' | xargs basename | sed 's/\.yml//' | grep -v private`
+
+if [ -z $(which fly) ]; then
+  echo "Concourse CLI is not installed."
+fi
+
+if [ -n "$1" ]; then
+  SCRIPTS=$1
+fi
+
+for script in $SCRIPTS; do
+  echo $APP_DIR/${script}.yml
+  if [ ! -f $APP_DIR/${script}.yml ]; then
+    echo "$script is not found"
+    continue
+  fi
+
+  fly -t example set-pipeline -l private.yml -p $script -c ${script}.yml
+done
