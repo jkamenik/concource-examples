@@ -1,0 +1,16 @@
+---
+resources:
+  - name: concourse-examples
+    type: git
+    source:
+      uri: git@github.com:jkamenik/concourse-examples.git
+      branch: master
+      private_key: {{git_private_key}}
+
+jobs:
+  - name: run-uname
+    public: true
+    plan:
+      - get: concourse-examples
+      - task: uname
+        file: tasks/uname.yml
