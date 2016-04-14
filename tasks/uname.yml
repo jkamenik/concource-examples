@@ -3,8 +3,8 @@ platform: linux
 
 image: docker:///ubuntu#14.04
 
-output:
-  uname
+outputs:
+  - name: uname
 
 run:
   path: sh
