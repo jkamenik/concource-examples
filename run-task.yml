@@ -12,5 +12,6 @@ jobs:
     public: true
     plan:
       - get: concourse-examples
+        trigger: true  # this allows plan to be triggered if concourse-examples changes
       - task: uname
         file: tasks/uname.yml
