@@ -13,5 +13,19 @@ jobs:
     plan:
       - get: concourse-examples
         trigger: true  # this allows plan to be triggered if concourse-examples changes
+
       - task: uname
         file: concourse-examples/tasks/uname.yml
+
+      - task: list
+        config:
+          platform: linux
+          inputs:
+            - name: uname
+          run:
+            path: sh
+            args:
+              - -exc
+              - |
+                ls -laR
+                cat uname/name
