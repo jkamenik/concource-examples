@@ -3,6 +3,11 @@ platform: linux
 
 image: docker:///ubuntu#14.04
 
+output:
+  uname
+
 run:
-  path: uname
-  args: [-a]
+  path: sh
+  args:
+    - -exc
+    - uname -a > uname/name
