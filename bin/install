@@ -28,4 +28,5 @@ for script in $SCRIPTS; do
   fi
 
   fly -t example set-pipeline $PRIVATE -p $script -c ${script}.yml
+  fly -t example unpause-pipeline -p $script
 done
