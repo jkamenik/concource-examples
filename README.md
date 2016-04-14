@@ -35,3 +35,8 @@ and values in a `private.yml` file.
 git_private_key: ssh-rsa ...
 foo: bar
 ```
+
+## Resources
+
+* [Concourse.io](https://concourse.ci)
+* [Concourse Examples](https://github.com/starkandwayne/concourse-tutorial)
