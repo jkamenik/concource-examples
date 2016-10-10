@@ -7,11 +7,15 @@ Examples using Concource.ci.
 ```bash
 $ git clone git@github.com:jkamenik/concourse-examples.git
 $ cd concourse-examples
-$ vagrant up
+$ git checkout docker
+$ docker-compose up
+
+# Download the "fly" command from the UI
 
 # log into concourse CLI
+# username and password are found in the docker-compose.yml file
 # Note: the target name of "example" is required
-$ fly -t example login -c http://192.168.100.4:8080
+$ fly -t example login -c http://127.0.0.1:8080
 
 # install all examples
 $ bin/install
@@ -20,7 +24,7 @@ $ bin/install
 $ bin/install hello
 ```
 
-The UI is running at 192.168.100.4:8080.
+The UI is running at localhost:8080.
 
 > Example are not started by default.
 
