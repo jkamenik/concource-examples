@@ -1,0 +1,7 @@
+resources:
+  - name: gs-cyber-release-1.1.1
+    type: git
+    source:
+      uri: git@bitbucket.org:fourvsystems/gs-cyber.git
+      branch: release-1.1.1
+      private_key: {{git_private_key}}
